@@ -83,13 +83,14 @@ app.factory("services", ['$http', '$location', function($http,$location) {
 				var arrLenght = actualQuestions.length;
 				if(id < arrLenght) {
 					var q = actualQuestions[id], randomQuestion;
+					var currQ = actualQuestions[id].word;
 					function checkRandom() {
 						randomInit = actualQuestions[Math.floor(Math.random() * (arrLenght - 0 + 1)) + 0];
 						if (randomInit == undefined) {
 							checkRandom();
 						}
 						randomQuestion = randomInit.word;
-						if (randomQuestion == id ) {
+						if (randomQuestion == currQ) {
 							checkRandom();
 						}
 					};

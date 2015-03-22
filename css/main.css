@@ -1,0 +1,459 @@
+/* ==========================================================================
+ * Base styles: opinionated defaults
+ * ========================================================================== */
+html, button, input, select, textarea {
+  color: #222222; }
+
+html {
+  font-size: 1em;
+  line-height: 1.4; }
+
+/* Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design. */
+::-moz-selection, ::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+/* A better looking default horizontal rule */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+/* Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440 */
+audio, canvas, img, video {
+  vertical-align: middle; }
+
+/* Remove default fieldset styles. */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+/* Allow only vertical resizing of textareas. */
+textarea {
+  resize: vertical; }
+
+/* ==========================================================================
+ * Browse Happy prompt
+ * ========================================================================== */
+.browsehappy {
+  margin: 0.2em 0;
+  background: #cccccc;
+  color: black;
+  padding: 0.2em 0; }
+
+/* ==========================================================================
+ * Author's custom styles
+ * ========================================================================== */
+@font-face {
+  font-family: "Intro";
+  src: url("../fonts/intro.eot");
+  src: url("../fonts/intro.eot?#iefix") format("embedded-opentype");
+  src: url("../fonts/intro.woff") format("woff");
+  src: url("../fonts/intro.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+body {
+  background: white; }
+
+.main_align {
+  margin: 0 auto;
+  width: 960px; }
+
+.ui-progressbar-value {
+  transition: all 0.2s ease-in-out 0s;
+  -ms-transition: all 0.2s ease-in-out 0s;
+  -moz-transition: all 0.2s ease-in-out 0s;
+  -webkit-transition: all 0.2s ease-in-out 0s; }
+
+.container {
+  margin: 1em auto;
+  max-width: 960px;
+  padding: 0 1em; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.btn {
+  font-family: "PT Sans";
+  font-size: 1em;
+  font-weight: 400;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  background: #00aced;
+  border: 0;
+  border-bottom: 4px solid #0679a4;
+  padding: 10px 19px;
+  border-radius: 5px; }
+  .btn:hover {
+    background: #008bed;
+    border-color: #024d69; }
+  .btn:active {
+    background: #008bed;
+    border: none;
+    top: 4px;
+    outline: none; }
+  .btn:focus {
+    outline: none; }
+
+button:disabled {
+  opacity: 0.2;
+  cursor: default;
+  background: #008bed;
+  border-color: #024d69; }
+
+.letter_btn {
+  font-family: "PT Sans";
+  font-size: 0.8em;
+  font-weight: 400;
+  color: black;
+  display: inline-block;
+  margin: 0.2em;
+  position: relative;
+  text-decoration: none;
+  background: #e1e1e1;
+  border: 0;
+  border-bottom: 4px solid #afafaf;
+  padding: 5px 14px;
+  border-radius: 5px; }
+  .letter_btn:hover {
+    background: #ee5953;
+    border-bottom: 3px solid #a43430;
+    color: white; }
+  .letter_btn:active, .letter_btn.active {
+    background: #ee5953;
+    color: white;
+    border: none;
+    top: 4px; }
+  .letter_btn:focus {
+    outline: none; }
+
+h1 {
+  font-family: "PT Sans";
+  font-size: 1.5em;
+  font-weight: normal;
+  color: black; }
+
+.edit_inner {
+  padding: 2em 1em; }
+
+.editing {
+  font-family: "PT Sans";
+  font-size: 1em;
+  font-weight: 400;
+  color: black; }
+  .editing .highlight {
+    font-family: "PT Sans";
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #00aced; }
+
+.help-inline {
+  position: absolute;
+  font-family: "PT Sans";
+  font-size: 14px;
+  font-weight: normal;
+  color: red;
+  margin-left: 5px; }
+
+.pencil-gray {
+  color: gray; }
+
+.searchText_filter {
+  color: black !important; }
+
+.edit_inner input[type="text"], .edit_inner textarea, .edit_inner input[type="password"] {
+  width: 340px;
+  background: none;
+  border: none;
+  border-bottom: solid 2px #0679a4;
+  padding: 5px 10px;
+  font-size: 14px;
+  display: block; }
+  .edit_inner input[type="text"]:focus, .edit_inner input[type="text"]:active, .edit_inner textarea:focus, .edit_inner textarea:active, .edit_inner input[type="password"]:focus, .edit_inner input[type="password"]:active {
+    outline: none; }
+.edit_inner input.word {
+  width: 80%; }
+.edit_inner .input_group {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  position: relative; }
+.edit_inner label {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  font-family: "PT Sans";
+  font-size: 14px;
+  font-weight: normal;
+  color: black;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.2s ease-in-out 0s;
+  -ms-transition: all 0.2s ease-in-out 0s;
+  -moz-transition: all 0.2s ease-in-out 0s;
+  -webkit-transition: all 0.2s ease-in-out 0s; }
+.edit_inner input:focus + label,
+.edit_inner input.has-value + label,
+.edit_inner textarea:focus + label,
+.edit_inner textarea.has-value + label {
+  opacity: 1;
+  top: -15px;
+  left: 5px;
+  font-size: 12px;
+  color: #aaaaaa; }
+
+.top_bar {
+  width: 96%;
+  background: #e1e1e1;
+  padding: 1.5% 2%;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  min-height: 2.91em;
+  max-height: 2.91em;
+  overflow: hidden; }
+  .top_bar .left {
+    width: 80%; }
+  .top_bar .right {
+    width: 20%; }
+    .top_bar .right input {
+      font-family: "PT Sans";
+      font-size: 1em;
+      font-weight: 400;
+      color: white;
+      padding: 10px 5px; }
+
+.dictionary_nav {
+  margin: 0.5em 0;
+  text-align: center; }
+
+.items {
+  margin-top: 3em; }
+  .items .row {
+    font-family: "PT Sans";
+    font-size: 1em;
+    font-weight: normal;
+    color: black;
+    background: #e1e1e1;
+    padding: 1.5% 2%; }
+    .items .row:nth-child(2n) {
+      background: lightgray; }
+  .items .col_1, .items .col_2 {
+    float: left; }
+  .items .col_1 {
+    width: 30%; }
+  .items .col_2 {
+    width: 50%; }
+  .items .col_3 {
+    text-align: right;
+    float: right;
+    width: 20%; }
+    .items .col_3 a {
+      font-size: 1em;
+      color: #00aced;
+      text-decoration: none; }
+      .items .col_3 a:hover {
+        color: #ee5953; }
+
+.quiz-area {
+  margin: 0 1em;
+  text-align: center; }
+  .quiz-area h2 {
+    font-family: "PT Sans";
+    font-size: 1.5em;
+    font-weight: 700;
+    color: black; }
+
+#score {
+  font-family: "PT Sans";
+  font-size: 1em;
+  font-weight: normal;
+  color: black;
+  margin-bottom: 1.5em; }
+
+.quiz-intro {
+  text-align: center;
+  margin: 1em; }
+
+.instructions {
+  font-family: "PT Sans";
+  font-size: 14px;
+  font-weight: normal;
+  color: black; }
+
+.answers button {
+  margin: 0 0.5em; }
+
+.progress {
+  font-family: "PT Sans";
+  font-size: 12px;
+  font-weight: normal;
+  color: gray; }
+
+.ui-progressbar {
+  height: 0.5em;
+  text-align: left;
+  overflow: hidden;
+  border-radius: 3px;
+  margin: 0.5em 0; }
+
+.ui-widget {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 1.1em; }
+
+.ui-widget-content {
+  border: 1px solid #aaaaaa;
+  background: white;
+  color: #222222; }
+
+.ui-progressbar .ui-progressbar-value {
+  margin: -1px;
+  height: 100%; }
+
+.ui-widget-header {
+  border: 1px solid #aaaaaa;
+  background: #00aced;
+  color: #222222;
+  font-weight: bold; }
+
+/* ==========================================================================
+ * Helper classes
+ * ========================================================================== */
+/* Image replacement */
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+  *text-indent: -9999px; }
+  .ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+  .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p */
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible {
+  visibility: hidden; }
+
+/* Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements. */
+.clearfix {
+  *zoom: 1; }
+  .clearfix:before {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */ }
+  .clearfix:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+    clear: both; }
+
+/* For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats. */
+/* ==========================================================================
+ * EXAMPLE Media Queries for Responsive Design.
+ * These examples override the primary ('mobile first') styles.
+ * Modify as content requires.
+ * ========================================================================== */
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */ }
+@media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */ }
+/* ==========================================================================
+ * Print styles.
+ * Inlined to avoid required HTTP connection: h5bp.com/r
+ * ========================================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important; }
+
+  a {
+    text-decoration: underline; }
+    a:visited {
+      text-decoration: underline; }
+    a[href]:after {
+      content: " (" attr(href) ")"; }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+
+  /* Don't show links for images, or javascript/internal links */
+  .ir a:after {
+    content: ""; }
+
+  a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: ""; }
+
+  pre, blockquote {
+    border: 1px solid #999999;
+    page-break-inside: avoid; }
+
+  thead {
+    display: table-header-group; }
+
+  tr {
+    page-break-inside: avoid; }
+
+  img {
+    page-break-inside: avoid;
+    max-width: 100% !important; }
+
+  @page {
+    margin: 0.5cm; }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3; }
+
+  h2, h3 {
+    page-break-after: avoid; } }

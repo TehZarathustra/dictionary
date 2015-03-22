@@ -1,0 +1,20 @@
+<div class="words_list">
+	<div class="top_bar clearfix">
+		<div class="left">
+			<a class="btn" href= "/">
+				<i class="fa fa-home"></i>
+				Главная
+			</a>
+			<a class="add_word btn" href="#/edit-word/0" ng-if="logged">
+				<i class="fa fa-book"></i> Добавить слово
+			</a>
+			<a class="add_word btn" href="#" ng-click="logout()" ng-if="logged">
+				<i class="fa fa-sign-out"></i> Выйти
+			</a>
+			<a class="login btn" href="#/login" ng-if="!logged">
+				<i class="fa fa-user"></i> Авторизация
+			</a>
+		</div>
+	</div>
+	<quiz></quiz>
+</div>

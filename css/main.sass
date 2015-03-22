@@ -1,0 +1,511 @@
+@charset "UTF-8"
+/* ==========================================================================
+ * Base styles: opinionated defaults
+ * ========================================================================== */
+
+html, button, input, select, textarea
+  color: #222
+
+html
+  font-size: 1em
+  line-height: 1.4
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design. */
+
+\::-moz-selection, ::selection
+  background: #b3d4fc
+  text-shadow: none
+
+/*
+ * A better looking default horizontal rule */
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid #ccc
+  margin: 1em 0
+  padding: 0
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440 */
+
+audio, canvas, img, video
+  vertical-align: middle
+
+/*
+ * Remove default fieldset styles. */
+
+fieldset
+  border: 0
+  margin: 0
+  padding: 0
+
+/*
+ * Allow only vertical resizing of textareas. */
+
+textarea
+  resize: vertical
+
+/* ==========================================================================
+ * Browse Happy prompt
+ * ========================================================================== */
+
+.browsehappy
+  margin: 0.2em 0
+  background: #ccc
+  color: #000
+  padding: 0.2em 0
+
+/* ==========================================================================
+ * Author's custom styles
+ * ========================================================================== */
+
+// Vars & General
+
+@font-face
+  font-family: 'Intro'
+  src: url('../fonts/intro.eot')
+  src: url('../fonts/intro.eot?#iefix') format('embedded-opentype')
+  src: url('../fonts/intro.woff') format('woff')
+  src: url('../fonts/intro.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+$main-w: 960px
+$body-c: #fff
+$mf: 'PT Sans'
+
+=bg($image, $repeat : no-repeat, $offsetX : 0, $offsetY : 0)
+  background: url(../img/#{$image}.png) $offsetX $offsetY $repeat
+
+=pic($image, $height)
+  height: $height
+  background: url(../img/#{$image}.png) 50% 0 no-repeat
+
+=f($fontFamily, $fontSize, $fontWeight : normal, $color : #000)
+  font-family: $fontFamily
+  font-size: $fontSize
+  font-weight: $fontWeight
+  color: $color
+
+=spr($offsetX,$offsetY)
+  background-image: url(../img/#{$sprite}.png) !important
+  background-position: -#{$offsetX}px -#{$offsetY}px !important
+  background-repeat: no-repeat
+
+=grd-v($start-color, $end-color)
+  background: $start-color
+  background: -moz-linear-gradient(top, $start-color 0%, $end-color 100%)
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, $start-color), color-stop(100%, $end-color))
+  background: -webkit-linear-gradient(top, $start-color 0%, $end-color 100%)
+  background: -o-linear-gradient(top, $start-color 0%, $end-color 100%)
+  background: -ms-linear-gradient(top, $start-color 0%, $end-color 100%)
+  background: linear-gradient(to bottom, $start-color 0%, $end-color 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$start-color', endColorstr='$end-color', GradientType=0 )
+
+=grd-h($start-color, $end-color)
+  background: $start-color
+  background: -moz-linear-gradient(left, $start-color 0%, $end-color 100%)
+  background: -webkit-gradient(left top, right top, color-stop(0%, $start-color), color-stop(100%, $end-color))
+  background: -webkit-linear-gradient(left, $start-color 0%, $end-color 100%)
+  background: -o-linear-gradient(left, $start-color 0%, $end-color 100%)
+  background: -ms-linear-gradient(left, $start-color 0%, $end-color 100%)
+  background: linear-gradient(to right, $start-color 0%, $end-color 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$start-color', endColorstr='$end-color', GradientType=0 )
+
+=rotate($angle)
+  -webkit-transform: rotate(#{$angle}deg)
+  -moz-transform: rotate(#{$angle}deg)
+  -o-transform: rotate(#{$angle}deg)
+  writing-mode: lr-tb
+
+=transition($length)
+  transition: all $length ease-in-out 0s
+  -ms-transition: all $length ease-in-out 0s
+  -moz-transition: all $length ease-in-out 0s
+  -webkit-transition: all $length ease-in-out 0s
+
+body
+  background: $body-c
+
+.main_align
+  margin: 0 auto
+  width: $main-w
+
+.ui-progressbar-value
+  +transition(.2s)
+
+.container
+  margin: 1em auto
+  max-width: $main-w
+  padding: 0 1em
+
+.left
+  float: left
+
+.right
+  float: right
+
+.btn
+  +f($mf,1em,400,#fff)
+  display: inline-block
+  text-decoration: none
+  position: relative
+  background: #00aced
+  border: 0
+  border-bottom: 4px solid #0679a4
+  padding: 10px 19px
+  border-radius: 5px
+  &:hover
+    background: #008bed
+    border-color: #024d69
+  &:active
+    background: #008bed
+    border: none
+    top: 4px
+    outline: none
+  &:focus
+    outline: none
+
+button:disabled
+  opacity: .2
+  cursor: default
+  background: #008bed
+  border-color: #024d69
+
+.letter_btn
+  +f($mf,.8em,400)
+  display: inline-block
+  margin: .2em
+  position: relative
+  text-decoration: none
+  background: #e1e1e1
+  border: 0
+  border-bottom: 4px solid #afafaf
+  padding: 5px 14px
+  border-radius: 5px
+  &:hover
+    background: #ee5953
+    border-bottom: 3px solid #a43430
+    color: #fff
+  &:active, &.active
+    background: #ee5953
+    color: #fff
+    border: none
+    top: 4px
+  &:focus
+    outline: none
+  .active
+
+h1
+  +f($mf,1.5em)
+
+.edit_inner
+  padding: 2em 1em
+
+.editing
+  +f($mf,1em,400)
+  .highlight
+    +f($mf,1.2em,700,#00aced)
+
+.help-inline
+  position: absolute
+  +f($mf,14px,normal,red)
+  margin-left: 5px
+
+.pencil-gray
+  color: gray
+
+.searchText_filter
+  color: #000 !important
+
+// input
+
+.edit_inner
+  input[type="text"], textarea, input[type="password"]
+    width: 340px
+    background: none
+    border: none
+    border-bottom: solid 2px #0679a4
+    padding: 5px 10px
+    font-size: 14px
+    display: block
+    &:focus,
+    &:active
+      outline: none
+  input.word
+    width: 80%
+  .input_group
+    display: inline-block
+    margin-right: 20px
+    margin-bottom: 30px
+    position: relative
+  label
+    position: absolute
+    left: 15px
+    top: 15px
+    +f($mf,14px,normal)
+    pointer-events: none
+    opacity: 0
+    +transition(.2s)
+  input:focus + label,
+  input.has-value + label,
+  textarea:focus + label,
+  textarea.has-value + label
+    opacity: 1
+    top: -15px
+    left: 5px
+    font-size: 12px
+    color: #aaa
+
+// Common elements
+
+.top_bar
+  width: 96%
+  background: #e1e1e1
+  padding: 1.5% 2%
+  border: 1px solid lightgray
+  border-radius: 4px
+  min-height: 2.91em
+  max-height: 2.91em
+  overflow: hidden
+  .left
+    width: 80%
+  .right
+    width: 20%
+    input
+      +f($mf,1em,400,#fff)
+      padding: 10px 5px
+
+.dictionary_nav
+  margin: .5em 0
+  text-align: center
+
+.items
+  margin-top: 3em
+  .row
+    +f($mf,1em)
+    background: #e1e1e1
+    padding: 1.5% 2%
+    &:nth-child(2n)
+      background: lightgray
+  .col_1, .col_2
+    float: left
+  .col_1
+    width: 30%
+  .col_2
+    width: 50%
+  .col_3
+    a
+      font-size: 1em
+      color: #00aced
+      text-decoration: none
+      &:hover
+        color: #ee5953
+    text-align: right
+    float: right
+    width: 20%
+
+// quiz area
+
+.quiz-area
+  margin: 0 1em
+  text-align: center
+  h2
+    +f($mf,1.5em,700)
+
+#score
+  +f($mf,1em)
+  margin-bottom: 1.5em
+
+.quiz-intro
+  text-align: center
+  margin: 1em
+
+.instructions
+  +f($mf,14px)
+
+.answers
+  button
+    margin: 0 .5em
+
+.progress
+  +f($mf,12px,normal,gray)
+
+// progress bar
+
+.ui-progressbar
+  height: .5em
+  text-align: left
+  overflow: hidden
+  border-radius: 3px
+  margin: .5em 0
+
+.ui-widget 
+  font-family: Verdana,Arial,sans-serif
+  font-size: 1.1em
+
+.ui-widget-content 
+  border: 1px solid #aaaaaa
+  background: #fff
+  color: #222222
+
+.ui-progressbar .ui-progressbar-value
+  margin: -1px
+  height: 100%
+
+.ui-widget-header
+  border: 1px solid #aaaaaa
+  background: #00aced
+  color: #222222
+  font-weight: bold
+
+
+/* ==========================================================================
+ * Helper classes
+ * ========================================================================== */
+
+/*
+ * Image replacement */
+
+.ir
+  background-color: transparent
+  border: 0
+  overflow: hidden
+  /* IE 6/7 fallback */
+  *text-indent: -9999px
+  &:before
+    content: ""
+    display: block
+    width: 0
+    height: 150%
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u */
+
+.hidden
+  display: none !important
+  visibility: hidden
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v */
+
+.visuallyhidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+  &.focusable
+    &:active, &:focus
+      clip: auto
+      height: auto
+      margin: 0
+      overflow: visible
+      position: static
+      width: auto
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p */
+
+/*
+ * Hide visually and from screenreaders, but maintain layout */
+
+.invisible
+  visibility: hidden
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements. */
+
+.clearfix
+  &:before
+    content: " "
+    /* 1 */
+    display: table
+    /* 2 */
+  &:after
+    content: " "
+    /* 1 */
+    display: table
+    /* 2 */
+    clear: both
+  *zoom: 1
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+
+/* ==========================================================================
+ * EXAMPLE Media Queries for Responsive Design.
+ * These examples override the primary ('mobile first') styles.
+ * Modify as content requires.
+ * ========================================================================== */
+
+@media only screen and (min-width: 35em)
+  /* Style adjustments for viewports that meet the condition */
+
+@media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi)
+  /* Style adjustments for high resolution devices */
+
+/* ==========================================================================
+ * Print styles.
+ * Inlined to avoid required HTTP connection: h5bp.com/r
+ * ========================================================================== */
+
+@media print
+  *
+    background: transparent !important
+    color: #000 !important
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important
+    text-shadow: none !important
+  a
+    text-decoration: underline
+    &:visited
+      text-decoration: underline
+    &[href]:after
+      content: " (" attr(href) ")"
+  abbr[title]:after
+    content: " (" attr(title) ")"
+  /*
+   * Don't show links for images, or javascript/internal links */
+  .ir a:after
+    content: ""
+  a
+    &[href^="javascript:"]:after, &[href^="#"]:after
+      content: ""
+  pre, blockquote
+    border: 1px solid #999
+    page-break-inside: avoid
+  thead
+    display: table-header-group
+  tr
+    page-break-inside: avoid
+  img
+    page-break-inside: avoid
+    max-width: 100% !important
+  @page
+    margin: 0.5cm
+
+  p, h2, h3
+    orphans: 3
+    widows: 3
+  h2, h3
+    page-break-after: avoid

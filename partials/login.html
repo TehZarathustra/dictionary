@@ -1,0 +1,44 @@
+<style type="text/css">
+  .form-horizontal input.ng-invalid.ng-dirty {
+	border-color: red;
+  }
+
+  .form-horizontal input.ng-valid.ng-dirty {
+	border-color: green;
+  }
+</style>
+
+<div class="top_bar clearfix">
+	<div class="left">
+		<a class="btn" href= "/">
+			<i class="fa fa-home"></i>
+			Главная
+		</a>
+	</div>
+	<div class="right editing">
+		<a>
+			Пользователь:<br/><span class="highlight">{{user.email}}</span>
+		</a>
+	</div>
+</div>
+
+<div class="edit_inner">
+	<h1>Авторизация</h1>
+	<form role="form" name="myForm" class="form-horizontal">
+		<div class= "input_group" ng-class="{error: myForm.name.$invalid}">
+			<input name="name" ng-model="user.email" type= "text" class= "word" required/>
+			<label>Пользователь</label>
+			<span ng-show="myForm.name.$dirty && myForm.name.$invalid" class="help-inline">Обязательно</span>
+		</div>
+		<div class= "input_group">
+			<input ng-model="user.pass" type= "password" class= "meaning form-control"/>
+			<label>Пароль</label>
+		</div>
+		<div class= "form-group">
+			<a href="#/" class="btn">Отмена</a>
+			<button ng-click="checkUser(user);" 
+					ng-disabled="myForm.$invalid"
+					class="btn btn-primary">Войти</button>
+		</div>
+	</form>
+</div>

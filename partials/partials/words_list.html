@@ -1,0 +1,40 @@
+<div class="words_list">
+	<div class="top_bar clearfix">
+		<div class="left">
+			<a class="add_word btn" href="#/edit-word/0" ng-if="logged">
+				<i class="fa fa-book"></i> Добавить слово
+			</a>
+			<a class="add_word btn" href="#" ng-click="logout()" ng-if="logged">
+				<i class="fa fa-sign-out"></i> Выйти
+			</a>
+			<a class="login btn" href="#/login" ng-if="!logged">
+				<i class="fa fa-user"></i> Авторизация
+			</a>
+			<a class="login btn" href="#/quiz">
+				<i class="fa fa-question"></i> Квиз (в разработке)
+			</a>
+		</div>
+		<div class="right">
+			<input class="searchText_filter" type="text" ng-model="searchText" placeholder="Поиск">
+		</div>
+	</div>
+	<div class="dictionary_nav">
+		<button ng-repeat="startLetter in alphabet" class="letter_btn" ng-class="{active: startLetter == letter}" ng-click="getMyCtrlScope().letter=startLetter">{{startLetter}}</button>
+		<button class="letter_btn" ng-class="{active: letter == undefined}" ng-click="letter = undefined">Все слова</button>
+	</div>
+	<div class="items">
+		<div class="row clearfix" ng-repeat="data in words | startsWithLetter:letter | orderBy:'word' | filter:searchText">
+			<div class="col col_1">{{data.word}}</div>
+			<div class="col col_2">{{data.meaning}}</div>
+			<div class="col col_3">
+				<a href="#/edit-word/{{data.wid}}" alt="Редактировать" ng-if="logged">
+					<i class="fa fa-pencil-square-o"></i>
+				</a>
+				<i class="fa fa-pencil-square-o pencil-gray" ng-if="!logged"></i>
+			</div>
+		</div>
+	</div>
+	<div class="nothing" data-ng-show="words.length == 0">
+		<h4>Еще ничего не добавили</h4>
+	</div>
+</div>

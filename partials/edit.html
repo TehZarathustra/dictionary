@@ -1,0 +1,49 @@
+﻿<style type="text/css">
+  .form-horizontal input.ng-invalid.ng-dirty {
+	border-color: red;
+  }
+
+  .form-horizontal input.ng-valid.ng-dirty {
+	border-color: green;
+  }
+</style>
+
+<div class="top_bar clearfix">
+	<div class="left">
+		<a class="btn" href= "/">
+			<i class="fa fa-home"></i>
+			Главная
+		</a>
+		<a ng-show="word._id" class="btn" "navbar-brand" href= "#/edit-word/0">
+			Добавить слово
+		</a>
+	</div>
+	<div class="right editing">
+		<a ng-show="word._id">
+			Редактируем:<br/><span class="highlight">{{word.word}}</span>
+		</a>
+	</div>
+</div>
+
+<div class="edit_inner">
+	<h1>{{title}}</h1>
+	<form role="form" name="myForm" class="form-horizontal">
+		<div class= "input_group" ng-class="{error: myForm.name.$invalid}">
+			<input name="name" ng-model="word.word" type= "text" class= "word" required/>
+			<label>Слово</label>
+			<span ng-show="myForm.name.$dirty && myForm.name.$invalid" class="help-inline">Обязательно</span>
+		</div>
+		<div class= "input_group">
+			<input ng-model="word.meaning" type= "text" class= "meaning form-control"/>
+			<label>Значение</label>
+		</div>
+		<div class= "form-group">
+			<a href="#/" class="btn">Отмена</a>
+			<button ng-click="saveWord(word);" 
+					ng-disabled="isClean() || myForm.$invalid"
+					class="btn btn-primary">{{buttonText}}</button>
+			<button ng-click="deleteWord(word)"
+					ng-show="word._id" class="btn btn-warning">Удалить</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,32 @@
+<div class="quiz-area" ng-show="inProgress">
+	<div ng-show="!quizOver">
+		<div class="progress_bar"></div>
+		<div class="progress">{{Qid}} из {{totalQ}}</div>
+		<h2>{{question}}</h2>
+		<div class="answers">
+			<button class="btn" ng-click="checkAnswer($event, option)" ng-repeat="option in options track by $index">{{option}}</button>
+		</div>
+		<!-- <div ng-show="!answerMode">
+			<button ng-click="nextQuestion()">Следующий</button>
+			<span ng-show="correctAns">Правильно</span>
+			<span ng-show="!correctAns">Неправильно</span>
+		</div> -->
+	</div>
+
+	<div ng-show="quizOver">
+		<h2>Квиз окончен</h2>
+		<div id="score">
+			Результат: {{score}} из {{totalQ}}<br/>
+			{{message}}
+		</div>
+		<button class="btn" ng-click="reset()">Начать заново</button>
+	</div>
+
+</div>
+<div class="quiz-intro" ng-show="!inProgress">
+	<div class="instructions">
+		<p>Какая-нибудь инструкция к квизу.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis pariatur hic cumque nam distinctio in quo, beatae sunt, obcaecati dolorum nisi, autem aperiam omnis mollitia facilis, odio ipsam tenetur sapiente provident tempore perspiciatis optio quis animi blanditiis id. Reiciendis architecto modi laboriosam quasi, excepturi sapiente obcaecati at voluptatem! Pariatur, corporis!</p>
+	</div>
+	<button class="btn" ng-click="start()">Начать квиз</button>
+</div>

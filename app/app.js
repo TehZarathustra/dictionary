@@ -36,10 +36,8 @@ app.factory("services", ['$http', '$location', function($http,$location) {
 	};
 
 	obj.sessionService = function() {
-		// alert('session init');
 		return {
 			set:function(key,value) {
-				// alert('setting');
 				return sessionStorage.setItem(key,value);
 			},
 			get:function(key) {
@@ -52,16 +50,11 @@ app.factory("services", ['$http', '$location', function($http,$location) {
 	};
 
 	obj.login = function(user) {
-		// alert(obj.sessionService().set('test', 'test'));
-		// alert('init inner');
-		// alert(JSON.stringify(user));
 		return $http.post(serviceBase + 'login', user).then(function (status) {
 			var uid = status.data;
 			if (uid == 'success') {
-				// alert('Success!');
 				obj.sessionService().set('user', uid);
 				$location.path('/');
-				// alert(obj.sessionService().get('user'));
 			} else {
 				alert('Неверный пароль или имя');
 			}
@@ -79,7 +72,6 @@ app.factory("services", ['$http', '$location', function($http,$location) {
 	obj.questions = function(pQuestions) {
 		return {
 		getQuestion: function(id) {
-				// alert('if init');
 				var arrLenght = actualQuestions.length;
 				if(id < arrLenght) {
 					var q = actualQuestions[id], randomQuestion;
@@ -159,7 +151,6 @@ app.directive('quiz', ['services', function(services) {
 				scope.id = 0;
 				scope.quizOver = false;
 				scope.inProgress = true;
-				// alert('setting initQuestions');
 				scope.getQuestion(actualQuestions);
 			};
 			scope.reset = function () {
@@ -168,8 +159,6 @@ app.directive('quiz', ['services', function(services) {
 			};
 			scope.getQuestion = function() {
 				var q = services.questions().getQuestion(scope.id);
-				// alert(scope.totalQ);
-				// alert(JSON.stringify(q));
 				if (q) {
 					scope.question = q.meaning;
 					scope.options = q.options;
@@ -181,7 +170,6 @@ app.directive('quiz', ['services', function(services) {
 				}
 			};
 			scope.checkAnswer = function(event,option) {
-				// alert('check init');
 				var target = event.currentTarget, option;
 				var ans = $(target).text();
 				ans = ans.replace(/\s+/g, '');
@@ -301,10 +289,8 @@ function($routeProvider) {
 	});
 }]);
 app.run(['$location', '$rootScope', 'services', function($location, $rootScope, services) {
-	// alert(services.islogged());
 	var routepermission = ['/login'];
 	var routepermissionSecond = ['/quiz'];
-	// alert(routepermission.indexOf($location.path()));
 	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
 		$rootScope.title = current.$$route.title;
 	});

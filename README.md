@@ -9,4 +9,4 @@ admin
 
 TODO:
 - a little bit refactoring
-- split controllers from direcives
+- split controllers from directives

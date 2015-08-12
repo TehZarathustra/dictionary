@@ -8,5 +8,5 @@ admin
 1234
 
 TODO:
-- a little bit refactoring
+- a little bit of refactoring
 - split controllers from directives

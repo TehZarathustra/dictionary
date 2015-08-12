@@ -6,3 +6,7 @@ http://trafalgar.tmweb.ru/
 to login use these:
 admin
 1234
+
+TODO:
+- a little bit refactoring
+- split controllers from direcives
